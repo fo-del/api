@@ -12,14 +12,14 @@ import java.util.Map;
 public class CreateReturn {
 	
 	public static void main(String[] args) throws JSONException, IOException, ParseException, FodelAPIException{
-		String secretKey = "7e9c8dfc017b9e7a14406f9f57cda40";//secretKey from Fodel
+		String secretKey = "";//secretKey from Fodel
 		String requestTime = (System.currentTimeMillis()/1000)+"";
 		Map<String ,String> params = new HashMap<String,String>();
 		params.put("recipient_name", "Alex Meng");//name of the customer
 		params.put("phone", "971522545710");//phone number of the customer
 		params.put("order_no", "23324234");//order number
 		params.put("address", "Dubai Opera ,Dubai");//address of customer
-		params.put("app_key", "2002");//app key from fodel
+		params.put("app_key", "");//app key from fodel
 		params.put("weight", "1200");//weight of the parcels, unit:g
 		params.put("return_type", "1");
 		//return type,
