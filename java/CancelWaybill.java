@@ -17,7 +17,7 @@ public class CancelWaybill {
 		params.put("ts", requestTime);
 		String signString = EncryptUtil.generateSign(params, secretKey);
 		params.put("sign", signString);
-		JSONObject jsonObject = HttpRequestUtil.request("POST", "/noon/parcel/cancel", params);
+		JSONObject jsonObject = HttpRequestUtil.request("POST", "/parcel/cancel", params);
 		System.out.println(jsonObject);
 	}
 }
