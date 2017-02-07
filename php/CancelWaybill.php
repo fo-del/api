@@ -20,5 +20,5 @@ $header = array();
 $header[] = "fodel_api_version: v1";
 $httprequest = new HttpRequestUtil();
 $httprequest->setBaseUrl("");//host of fodel
-$respone = $httprequest->post("/noon/parcel/updateTracking",$params,true,$header);
+$respone = $httprequest->post("/parcel/updateTracking",$params,true,$header);
 echo $respone->body;
