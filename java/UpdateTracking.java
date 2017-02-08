@@ -19,7 +19,7 @@ public class UpdateTracking {
 		params.put("ts", requestTime);
 		String signString = EncryptUtil.generateSign(params, secretKey);
 		params.put("sign", signString);
-		JSONObject jsonObject = HttpRequestUtil.request("POST", "/parcel/updateTracking", params);
+		JSONObject jsonObject = HttpRequestUtil.request("POST", "http://api.test.fo-del.com/parcel/updateTracking", params);
 		System.out.println(jsonObject);
 	}
 }
