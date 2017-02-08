@@ -37,7 +37,7 @@ public class CreateReturn {
 		params.put("product_info",JSONObject.toJSONString(returnGoodLists));
 		String signString = EncryptUtil.generateSign(params, secretKey);
 		params.put("sign", signString);
-		JSONObject jsonObject = HttpRequestUtil.request("POST", "/parcel/return", params);
+		JSONObject jsonObject = HttpRequestUtil.request("POST", "http://api.test.fo-del.com/parcel/return", params);
 		System.out.println(jsonObject);
 		
 	}
