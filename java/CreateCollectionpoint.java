@@ -24,7 +24,7 @@ public class CreateCollectionpoint {
 		params.put("ts", requestTime);
 		String signString = EncryptUtil.generateSign(params, secretKey);
 		params.put("sign", signString);
-		JSONObject jsonObject = HttpRequestUtil.request("POST", "/parcel/create", params);
+		JSONObject jsonObject = HttpRequestUtil.request("POST", "http://api.test.fo-del.com/parcel/create", params);
 		System.out.println(jsonObject);
 	}
 }
