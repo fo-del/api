@@ -17,7 +17,7 @@ public class ConfirmReceivedReturn {
 		params.put("ts", requestTime);
 		String signString = EncryptUtil.generateSign(params, secretKey);
 		params.put("sign", signString);
-		JSONObject jsonObject = HttpRequestUtil.request("POST", "/parcel/confirmReceivedReturn", params);
+		JSONObject jsonObject = HttpRequestUtil.request("POST", "http://api.test.fo-del.com/parcel/confirmReceivedReturn", params);
 		System.out.println(jsonObject);
 	}
 }
