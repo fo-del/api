@@ -17,7 +17,7 @@ public class PullTrackingInfo {
 		params.put("ts", requestTime);
 		String signString = EncryptUtil.generateSign(params, secretKey);
 		params.put("sign", signString);
-		JSONObject jsonObject = HttpRequestUtil.request("GET", "/parcel/pullTracking", params);
+		JSONObject jsonObject = HttpRequestUtil.request("GET", "http://api.test.fo-del.com/parcel/pullTracking", params);
 		System.out.println(jsonObject);
 	}
 }
