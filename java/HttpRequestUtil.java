@@ -1,4 +1,5 @@
 
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -18,7 +19,6 @@ import com.alibaba.fastjson.JSONObject;
  */
 public class HttpRequestUtil {
 
-	   private static String apiHostString = "http://api.test.fo-del.com";//"http://devomigo.kingsouq.com";//"http://api.fo-del.com";
 	   private static String apiVersionString = "v1.0.0";
 	   
 	   /**
@@ -39,12 +39,12 @@ public class HttpRequestUtil {
 	       OutputStreamWriter wr;
 	       HttpURLConnection connection;
 	       
-	       URL serverAddress= new URL(new URL(apiHostString), url);
+	       URL serverAddress= new URL(url);
 	       connection= (HttpURLConnection)serverAddress.openConnection();
 	       connection.setRequestMethod(method);
 	       connection.setReadTimeout(10000);
 	       connection.setRequestProperty("fodel_api_version", apiVersionString); //fodel api version
-	       
+	       connection.setConnectTimeout(120000);
 	       if(postForm!=null){
 	    	   connection.setDoOutput(true);
 	       }
@@ -87,3 +87,4 @@ public class HttpRequestUtil {
 	       return response;
 	   }
 }
+
