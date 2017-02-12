@@ -1,14 +1,16 @@
 <?php
+/**
+checkin the waybill
+*/
 include_once "EncryptUtil.php";
 include_once "HttpRequestUtil.php";
 
 $requestTime = time(); //timestamp of request
 $secretKey = ""; //secretKey from Fodel
 $params = array();
-$params["awb"] = "";//awb nubmer
-$params["info"] = ""; //tracking information
-$params["status_code"] = "";//tracking information code
-$params["app_key"] = ; //
+$params["checkin_type"] = "2";//awb number
+$params["awb"] = "881481246";//awb number
+$params["app_key"] = ""; //app key from Fodel
 $params["ts"] = $requestTime;
 //generate the sign from the paramters with eht secretKey
 $signString = EncryptUtil::generateSign($params,$secretKey);
@@ -18,6 +20,6 @@ $params['sign'] = $signString;
 $header = array();
 $header[] = "fodel_api_version: v1";
 $httprequest = new HttpRequestUtil();
-$httprequest->setBaseUrl("http://");
-$respone = $httprequest->post("/parcel/updateTracking",$params,true,$header);
+$httprequest->setBaseUrl("http://api.test.fo-del.com");//host of fodel
+$respone = $httprequest->post("/shipment/checkIn",json_encode($params),true,$header);
 echo $respone->body;

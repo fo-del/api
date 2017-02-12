@@ -3,8 +3,8 @@
  * sample of create an collection point waybill,
  *
  */
-include_once "../EncryptUtil.php";
-include_once "../HttpRequestUtil.php";
+include_once "EncryptUtil.php";
+include_once "HttpRequestUtil.php";
 
 $productInfo = [
     [   "name"=>"Iphone 7 golden color",//name of the product
@@ -26,13 +26,12 @@ $secretKey = ""; //secretKey from Fodel
 $params = array();
 $params["recipient_name"] = "Fiona Williams";//full name of customer
 $params["phone"] = "0508873269";//phone of the customer
-$params["address"] = "Dubai Opera,Dubai,United Arab Emirates";//address of the customer
-$params["weight"] = 420;//weight of the parcel,unit: g
-$params["is_cod"] = 1;//is the cod or not : 1 yes,0:no
-$params["price_cod"] = 1000;//amount of the cod,if it is not cod ,put 0,
-$params["order_no"] = "";//order number
+$params["weight"] = "420";//weight of the parcel,unit: g
+$params["is_cod"] = "1";//is the cod or not : 1 yes,0:no
+$params["price_cod"] = "1000";//amount of the cod,if it is not cod ,put 0,
+$params["order_no"] = "343444444";//order number
 $params["app_key"] = "";//app key of the fodel
-$params["shop_id"] = 200001;//shop id of the customer choose
+$params["shop_id"] = "36";//shop id of the customer choose
 $params["ts"] = $requestTime;
 $params["product_info"] = json_encode($productInfo); //product information , just put the json format
 //generate the sign from the paramters with eht secretKey
@@ -44,7 +43,7 @@ $header = array();
 $header[]="fodel_api_version: v1";
 $httprequest = new HttpRequestUtil();
 $httprequest->setBaseUrl("http://api.test.fo-del.com");
-$respone = $httprequest->post("/parcel/create",$params,true,$header);
+$respone = $httprequest->post("/shipment/create",json_encode($params),true,$header);
 echo $respone->body;
 
 

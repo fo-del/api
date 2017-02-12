@@ -1,4 +1,4 @@
-
+package util;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -21,6 +21,12 @@ public class HttpRequestUtil {
 
 	   private static String apiVersionString = "v1.0.0";
 	   
+	   public static JSONObject request(String method, String url, Map<String, String> postForm) throws JSONException, IOException, ParseException, FodelAPIException{
+		   return request(method, url, postForm, null);
+	   }
+	   public static JSONObject request(String method, String url, String requestBody) throws JSONException, IOException, ParseException, FodelAPIException{
+		   return request(method, url, null, requestBody);
+	   }
 	   /**
 	    * make a http request
 	    * @param method 
@@ -32,7 +38,7 @@ public class HttpRequestUtil {
 	    * @throws JSONException
 	    * @throws FodelAPIException
 	    */
-	   public static JSONObject request(String method, String url, Map<String, String> postForm)
+	   public static JSONObject request(String method, String url, Map<String, String> postForm,String requestBody)
 	           throws IOException,ParseException,JSONException, FodelAPIException{
 	       BufferedReader rd;
 	       StringBuilder sb;
@@ -51,12 +57,16 @@ public class HttpRequestUtil {
 
 	       connection.connect();
 	       StringBuffer params = new StringBuffer();
+	       wr = new OutputStreamWriter(connection.getOutputStream());
 	       if(postForm!=null){
 	    	   for(String key : postForm.keySet()){
 	    		   params.append(key).append("=").append(postForm.get(key)).append("&");
 	    	   }
-	           wr = new OutputStreamWriter(connection.getOutputStream());
+	           
 	           wr.write(params.toString());
+	           wr.flush();
+	       }else{
+	           wr.write(requestBody);
 	           wr.flush();
 	       }
 
@@ -87,4 +97,3 @@ public class HttpRequestUtil {
 	       return response;
 	   }
 }
-

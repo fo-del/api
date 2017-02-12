@@ -1,25 +1,24 @@
-
-import com.alibaba.fastjson.JSONException;
-import com.alibaba.fastjson.JSONObject;
-
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class UpdateTracking {
+import com.alibaba.fastjson.JSONException;
+import com.alibaba.fastjson.JSONObject;
+
+
+public class Pickup {
 	public static void main(String[] args) throws JSONException, IOException, ParseException, FodelAPIException{
 		String secretKey = "";//secretKey from Fodel
-		String requestTime = (System.currentTimeMillis()/1000)+"";
+		String requestTime = (System.currentTimeMillis()/1000)+""; //request time
 		Map<String ,String> params = new HashMap<String,String>();
-		params.put("app_key", "");//app key
-		params.put("awb", "675332741");//awb number
-		params.put("info", "new parcels");//the tracking information
-		params.put("status_code", "1");//the status code
+		params.put("app_key", "");//app key from fodel
+		params.put("awb", "757873898");//awb number
+		params.put("pickup_type", "1");//1: ecommerce, 2: collection point
 		params.put("ts", requestTime);
 		String signString = EncryptUtil.generateSign(params, secretKey);
 		params.put("sign", signString);
-		JSONObject jsonObject = HttpRequestUtil.request("POST", "http://api.test.fo-del.com/parcel/updateTracking", params);
+		JSONObject jsonObject = HttpRequestUtil.request("POST", "http://api.test.fo-del.com/shipment/pickup", JSONObject.toJSONString(params));
 		System.out.println(jsonObject);
 	}
 }

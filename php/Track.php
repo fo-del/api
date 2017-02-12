@@ -1,16 +1,14 @@
 <?php
-/**
-cancel the waybill
-*/
 include_once "EncryptUtil.php";
 include_once "HttpRequestUtil.php";
 
 $requestTime = time(); //timestamp of request
 $secretKey = ""; //secretKey from Fodel
 $params = array();
-$params["awb"] = "653841937";//awb number
-$params["app_key"] = ""; //app key from Fodel
+$params["app_key"] = "";//app key from fodel
 $params["ts"] = $requestTime;
+//select the tracking info by awb,
+$params["awbs"] = "653841937";
 //generate the sign from the paramters with eht secretKey
 $signString = EncryptUtil::generateSign($params,$secretKey);
 $params['sign'] = $signString;
@@ -19,6 +17,6 @@ $params['sign'] = $signString;
 $header = array();
 $header[] = "fodel_api_version: v1";
 $httprequest = new HttpRequestUtil();
-$httprequest->setBaseUrl("http://api.test.fo-del.com");//host of fodel
-$respone = $httprequest->post("/shipment/cancel",json_encode($params),true,$header);
+$httprequest->setBaseUrl("http://api.test.fo-del.com");
+$respone = $httprequest->post("/shipment/track",json_encode($params),$header,false);
 echo $respone->body;
