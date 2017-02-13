@@ -13,7 +13,7 @@ public class CheckinFinalized {
 		String requestTime = (System.currentTimeMillis()/1000)+""; //request time
 		Map<String ,String> params = new HashMap<String,String>();
 		params.put("app_key", "");//app key from fodel
-		params.put("awb", "757873898");//awb number
+		params.put("awbs", "757873898");//awb number
 		params.put("checkin_type", "2");//1: ecommerce, 2: collection point
 		params.put("ts", requestTime);
 		String signString = EncryptUtil.generateSign(params, secretKey);
