@@ -51,9 +51,7 @@ public class HttpRequestUtil {
 	       connection.setReadTimeout(10000);
 	       connection.setRequestProperty("fodel_api_version", apiVersionString); //fodel api version
 	       connection.setConnectTimeout(120000);
-	       if(postForm!=null){
-	    	   connection.setDoOutput(true);
-	       }
+	       connection.setDoOutput(true);
 
 	       connection.connect();
 	       StringBuffer params = new StringBuffer();
