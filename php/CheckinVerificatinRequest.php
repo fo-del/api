@@ -21,5 +21,5 @@ $header = array();
 $header[] = "fodel_api_version: v1";
 $httprequest = new HttpRequestUtil();
 $httprequest->setBaseUrl("http://api.test.fo-del.com");//host of fodel
-$respone = $httprequest->post("/shipment/checkinfinalized",json_encode($params),true,$header);
+$respone = $httprequest->post("/shipment/checkInVerificationRequest",json_encode($params),true,$header);
 echo $respone->body;

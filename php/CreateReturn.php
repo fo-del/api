@@ -23,12 +23,12 @@ $productInfo = [
 ];
 
 $requestTime = time(); //timestamp of request
-$secretKey = ""; //secretKey from Fodel
+$secretKey = "fbc0ba8250b813275c767390a4bc7d3b"; //secretKey from Fodel
 $params = array();
 $params["recipient_name"] = "Gloria Davies";//full name of customer
 $params["phone"] = "0528144434";//phone of the customer
 $params["address"] = "Dubai Opera ,Dubai,United Arab Emirates";//address of the customer
-$params["app_key"] = "";//app key of the fodel
+$params["app_key"] = "2003";//app key of the fodel
 //return type :
 //1,warranty(the customer is want to refund),
 //2,return (the customer want to change the product or the product has problem, need to send back the warehouse),

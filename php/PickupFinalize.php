@@ -9,7 +9,7 @@ $requestTime = time(); //timestamp of request
 $secretKey = ""; //secretKey from Fodel
 $params = array();
 $params["pickup_type"] = "1";//awb number
-$params["awb"] = "881481246";//awb number
+$params["awbs"] = "881481246";//awb number
 $params["app_key"] = ""; //app key from Fodel
 $params["ts"] = $requestTime;
 //generate the sign from the paramters with eht secretKey

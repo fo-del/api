@@ -6,10 +6,10 @@ include_once "EncryptUtil.php";
 include_once "HttpRequestUtil.php";
 
 $requestTime = time(); //timestamp of request
-$secretKey = ""; //secretKey from Fodel
+$secretKey = "fbc0ba8250b813275c767390a4bc7d3b"; //secretKey from Fodel
 $params = array();
-$params["awb"] = "653841937";//awb number
-$params["app_key"] = ""; //app key from Fodel
+$params["awb"] = "534053190";//awb number
+$params["app_key"] = "2003"; //app key from Fodel
 $params["ts"] = $requestTime;
 //generate the sign from the paramters with eht secretKey
 $signString = EncryptUtil::generateSign($params,$secretKey);

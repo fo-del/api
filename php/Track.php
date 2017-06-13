@@ -3,12 +3,12 @@ include_once "EncryptUtil.php";
 include_once "HttpRequestUtil.php";
 
 $requestTime = time(); //timestamp of request
-$secretKey = ""; //secretKey from Fodel
+$secretKey = "fbc0ba8250b813275c767390a4bc7d3b"; //secretKey from Fodel
 $params = array();
-$params["app_key"] = "";//app key from fodel
+$params["app_key"] = "2003";//app key from fodel
 $params["ts"] = $requestTime;
 //select the tracking info by awb,
-$params["awbs"] = "653841937";
+$params["awbs"] = "728509258,534053190";
 //generate the sign from the paramters with eht secretKey
 $signString = EncryptUtil::generateSign($params,$secretKey);
 $params['sign'] = $signString;

@@ -22,7 +22,7 @@ $productInfo = [
     ]
 ];
 $requestTime = time(); //timestamp of request
-$secretKey = ""; //secretKey from Fodel
+$secretKey = "fbc0ba8250b813275c767390a4bc7d3b"; //secretKey from Fodel
 $params = array();
 $params["recipient_name"] = "Fiona Williams";//full name of customer
 $params["phone"] = "0508873269";//phone of the customer
@@ -30,7 +30,7 @@ $params["weight"] = "420";//weight of the parcel,unit: g
 $params["is_cod"] = "1";//is the cod or not : 1 yes,0:no
 $params["price_cod"] = "1000";//amount of the cod,if it is not cod ,put 0,
 $params["order_no"] = "343444444";//order number
-$params["app_key"] = "";//app key of the fodel
+$params["app_key"] = "2003";//app key of the fodel
 $params["shop_id"] = "36";//shop id of the customer choose
 $params["ts"] = $requestTime;
 $params["product_info"] = json_encode($productInfo); //product information , just put the json format
