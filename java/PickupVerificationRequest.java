@@ -7,7 +7,7 @@ import com.alibaba.fastjson.JSONException;
 import com.alibaba.fastjson.JSONObject;
 
 
-public class PickupFinalized {
+public class PickupVerificationRequest {
 	public static void main(String[] args) throws JSONException, IOException, ParseException, FodelAPIException{
 		String secretKey = "";//secretKey from Fodel
 		String requestTime = (System.currentTimeMillis()/1000)+""; //request time
